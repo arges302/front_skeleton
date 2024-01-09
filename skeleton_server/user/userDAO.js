@@ -36,7 +36,7 @@ const userDAO = {
           if(error) callback({status: 500, message:'암호화 실패', error: error})
           else{
             // DB insert
-            const [respheck] = await conn.query(sql.signup, [item.name, item.email, hash])
+            const [resp] = await conn.query(sql.signup, [item.name, item.email, hash])
             callback({status: 200, message:'OK', data: resp})
           }
         })
