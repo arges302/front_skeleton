@@ -9,4 +9,4 @@ CREATE TABLE IF NOT EXISTS user (
     PRIMARY KEY (id)
 );
 
-DROP TABLE user1;
+DROP TABLE user;
