@@ -8,5 +8,3 @@ CREATE TABLE IF NOT EXISTS user (
     createAt DATETIME NULL DEFAULT now(),
     PRIMARY KEY (id)
 );
-
-DROP TABLE user;
