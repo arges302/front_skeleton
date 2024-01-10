@@ -3,21 +3,20 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
-const SignUp = () => {
-  // url path 조정하려고
+const SignIn = () => {
+
   const navigate = useNavigate()
 
-  // controlled component 를 위해서
-  const [data, setData] = useState({ name: '', email: '', password: '' })
+
+  const [data, setData] = useState({ email: '', password: '' })
   const changeData = useCallback((e) => {
     setData((data) => ({ ...data, [e.target.name]: e.target.value }))
   }, [])
-  //submit 버튼 클릭 서버연동 이벤트
-  const signup = useCallback(async (e) => {
+
+  const login = useCallback(async (e) => {
     e.preventDefault()
-    const resp = await axios.post('http://localhost:8000/users/signup', data)
-    if (resp.data.status === 500) window.alert('사용자가 존재합니다.')
-    // 첫 화면으로 전환
+    const resp = await axios.post('http://localhost:8000/users/signin', data)
+    if (resp.data.status === 500) window.alert(resp.data.message)
     else navigate('/')
   }, [data, navigate])
   return (
@@ -52,8 +51,7 @@ const SignUp = () => {
       {/* <!-- ======= About Section ======= --> */}
       <section className="section-about">
         <div className="container">
-          {/* ajax로 서버에 유저 입력 데이터를 전송할 것임으로 ajax에서 서버 url지정
-          http request method 지정한다. 그럼으로 form태그는 선언하지만 method, action 속성을 지정X */}
+          <h2>Login</h2>
           <form className="row">
             <div className="col-sm12 position-relative form-group mb-3">
               <label htmlFor="email" className="form-label">Email</label>
@@ -63,13 +61,8 @@ const SignUp = () => {
               <label htmlFor="password" className="form-label">Password</label>
               <input type="password" className="form-control" id="password" name="password" value={data.password} onChange={changeData}/>
             </div>
-            <div className="col-sm12 position-relative form-group mb-3">
-              <label htmlFor="name" className="form-label">Name</label>
-              <input type="text" className="form-control" id="name" name="name" value={data.name} onChange={changeData}/>
-            </div>
-
             <div className="col-sm12 position-relative form-group">
-              <button type="submit" className="btn btn-danger btn-sm" onClick={signup}>send</button>
+              <button type="submit" className="btn btn-danger btn-sm" onClick={login}>send</button>
               <button type="reset" className="btn btn-primary btn-sm">reset</button>
             </div>
           </form>
@@ -277,4 +270,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default SignIn

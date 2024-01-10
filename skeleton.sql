@@ -1,3 +1,5 @@
+select * from user
+
 use skeleton;
 
 CREATE TABLE IF NOT EXISTS user (
