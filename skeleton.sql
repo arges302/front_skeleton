@@ -1,5 +1,3 @@
-select * from user
-
 use skeleton;
 
 CREATE TABLE IF NOT EXISTS user (
@@ -10,3 +8,18 @@ CREATE TABLE IF NOT EXISTS user (
     createAt DATETIME NULL DEFAULT now(),
     PRIMARY KEY (id)
 );
+select * from user;
+
+CREATE TABLE IF NOT EXISTS board(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(100) NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    content VARCHAR(1024) NOT NULL,
+    cnt INT NULL DEFAULT 0,
+    createdAt DATETIME NULL DEFAULT now(),
+    PRIMARY KEY (id)
+    );
+
+INSERT INTO board (name, title, content) VALUES ('홍길동', '첫번째 게시물', '첫번째 내용입니다....');
+INSERT INTO board (name, title, content) VALUES ('김길동', '두번째 게시물', '두번째 내용입니다....');
+INSERT INTO board (name, title, content) VALUES ('박길동', '세번째 게시물', '세번째 내용입니다....');
