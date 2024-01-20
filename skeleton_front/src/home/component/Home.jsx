@@ -1,10 +1,18 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
     <div>
-       {/* <!-- ======= Intro Section ======= --> */}
+      {/* index.html 에서 필요한 부분만 복사.. 
+      -  html 주석.. 
+      - html 은 single tag 를 허용하지만.. jsx 는 xml 문법이다. single tag 허용하지 않는다..
+      - a => Link
+      - class => className
+      - style : inline style, jsx - javascript 표현식으로.. 
+      - 이미지 경로 public 의 images 로 변경.. 
+      */}
+      {/* <!-- ======= Intro Section ======= --> */}
       <div className="intro intro-carousel swiper position-relative">
 
         <div className="swiper-wrapper">
@@ -68,11 +76,11 @@ const Home = () => {
                     <div className="col-lg-8">
                       <div className="intro-body">
                         <p className="intro-title-top">Doral, Florida
-                          <br/> 78345
+                          <br /> 78345
                         </p>
                         <h1 className="intro-title mb-4">
                           <span className="color-b">204 </span> Alira
-                          <br/> Roan Road One
+                          <br /> Roan Road One
                         </h1>
                         <p className="intro-subtitle intro-price">
                           <Link href="#"><span className="price-a">rent | $ 12.000</span></Link>
@@ -88,8 +96,6 @@ const Home = () => {
         <div className="swiper-pagination"></div>
       </div>
       {/* <!-- End Intro Section --> */}
-
-
       <main id="main">
         {/* <!-- ======= Services Section ======= --> */}
         <section className="section-services section-t8">
@@ -180,8 +186,6 @@ const Home = () => {
           </div>
         </section>
         {/* <!-- End Services Section --> */}
-
-
         {/* <!-- ======= Agents Section ======= --> */}
         <section className="section-agents section-t8">
           <div className="container">
@@ -371,10 +375,8 @@ const Home = () => {
             </div>
           </div>
         </section>
-        {/* <!-- End Agents Section --> */}
-
-
-        {/* <!-- ======= Testimonials Section ======= --> */}
+        {/* <!-- End Agents Section -->
+    <!-- ======= Testimonials Section ======= --> */}
         <section className="section-testimonials section-t8 nav-arrow-a">
           <div className="container">
             <div className="row">
@@ -419,12 +421,15 @@ const Home = () => {
                 </div>
                 {/* <!-- End carousel item --> */}
 
-
                 <div className="carousel-item-a swiper-slide">
                   <div className="testimonials-box">
                     <div className="row">
                       <div className="col-sm-12 col-md-6">
                         <div className="testimonial-img">
+                          {/* Home.jsx 컴포넌트가 라우팅이 되는 조건이..
+                          http://localhost:5173/ 
+                          아래의 이미지 url 에 의해
+                          http://localhost:5173/images/testimonial-2.jpg*/}
                           <img src="images/testimonial-2.jpg" alt="" className="img-fluid" />
                         </div>
                       </div>
@@ -456,10 +461,11 @@ const Home = () => {
           </div>
         </section>
         {/* <!-- End Testimonials Section --> */}
-
       </main>
     </div>
   )
 }
 
 export default Home
+
+
